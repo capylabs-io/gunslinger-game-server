@@ -1,0 +1,25 @@
+{
+  "files": [
+    "./src/main.ts",
+    "./src/healthcheck.ts",
+    "./src/authentication/custom_authentication.ts",
+    "src/match/match_handler.ts",
+    "src/match/match_api.ts",
+    "src/match/constant.ts",
+
+    "src/storage/storage.ts",
+    
+    "src/logger.ts",
+    "src/utils.ts",
+    "src/models/index.ts"
+  ],
+  "compilerOptions": {
+    "target": "ES5",
+    "typeRoots": ["./node_modules"],
+    "outFile": "./build/index.js",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

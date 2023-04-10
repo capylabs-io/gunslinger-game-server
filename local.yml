@@ -1,0 +1,25 @@
+console:
+  signing_key: 'xctWk*jW&E9VkudnmVSy+6T&(9RrpN!XxXPPUgrVJRbg!WUhpgVUyqTKvKYk(pX%'
+  max_message_size_bytes: 409600
+  username: 'metabank_admin'
+  password: 'password'
+logger:
+  level: 'INFO'
+runtime:
+  js_entrypoint: './build/index.js'
+  js_read_only_globals: false
+  token_expiry_sec: 1500
+  http_key: 'jBJwQTrnnDDT8YjAVsB8I3rqmXP0KOVFw1oqjxLfYLdOnj24cCddtUjrCZkBmp6XEd5YHHPFomFWvZbM3zCu9WdWhqgflPrRKYVclhnH9Yskvt619xsg51vI8XgVpwRiwpo9Z'
+  env:
+    - 'strapi_url=https://neobank-dev-api.capylabs.io/api/'
+session:
+  token_expiry_sec: 7200 # 2 hours
+  refresh_encryption_key: 'YHvam&xRwq%&A7(tKQqY9))yHZ4yN^I5P^3&&fzpLRmv@HqHkIUXIR^ksH4weWm3'
+  encryption_key: 'Rxy!2Sr*hJhatpST*^e)sgMWuBy3U@SwryRU2tv#!DP4%TbV$4h8R#G@(n5zadBL'
+socket:
+  max_message_size_bytes: 4096 # reserved buffer
+  max_request_size_bytes: 131072
+  server_key: 'k!j2N*Gcvd#gAKy@mLCPpdutD#yMYIEW^(sKE$6wp7yE%C!eF@%fMbt8J6CESESg'
+database:
+  address:
+    - 'postgres:GybxJha5w5GR3nUU@neobank-nakama.cejtub0sxnrj.us-east-1.rds.amazonaws.com:5432/postgres'
