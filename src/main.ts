@@ -5,13 +5,14 @@ let InitModule: nkruntime.InitModule = function (
   initializer: nkruntime.Initializer
 ) {
   initializer.registerRpc('rpcHealthCheck', rpcHealthCheck);
+  initializer.registerRpc('rpcMatchInit', rpcMatchInit);
   initializer.registerMatch(MATCH_GAME, {
-    matchInit: worldMatchInit,
-    matchJoinAttempt: worldMatchJoinAttempt,
-    matchJoin: worldMatchJoin,
-    matchLeave: worldMatchLeave,
-    matchLoop: worldMatchLoop,
-    matchSignal: worldMatchSignal,
-    matchTerminate: worldMatchTerminate,
+    matchInit: matchInit,
+    matchJoinAttempt: matchJoinAttempt,
+    matchJoin: matchJoin,
+    matchLeave: matchLeave,
+    matchLoop: matchLoop,
+    matchSignal: matchSignal,
+    matchTerminate: matchTerminate,
   });
 };

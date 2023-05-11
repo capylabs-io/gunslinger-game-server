@@ -1,6 +1,7 @@
-class OPCODES {
-  static POSTION_ROTATION_OPCODE = 1;
-  static UPDATE_OUTFIT_OPCODE = 2;
+class OpCode {
+  static postion = 1;
+  static information = 2;
+  static move = 3;
 }
 
 const MATCH_GAME = 'match_game'

@@ -4,7 +4,6 @@ const matchInit = function (
   nk: nkruntime.Nakama,
   params: { [key: string]: string }
 ): { state: nkruntime.MatchState; tickRate: number; label: string } {
-  logger.debug('Lobby match created');
   let presences: { [userId: string]: nkruntime.Presence } = {};
 
   return {
@@ -31,20 +30,6 @@ const matchJoinAttempt = function (
   Logger.load(logger);
   StorageEngine.load(nk);
 
-  // if (metadata) {
-  //   const outfitData = JSON.parse(metadata.CharacterOutfitData);
-  //   const writeParam: IStorageWrite = {
-  //     collection: USER_DATA_COLLECTION,
-  //     key: ctx.userId,
-  //     value: {
-  //       userId: ctx.userId,
-  //       outfit: outfitData || null,
-  //     },
-  //   };
-  //   storageWrite(nk, [writeParam]);
-  //   // StorageEngine.write([writeParam]);
-  // }
-
   return {
     state,
     accept: true,
@@ -60,9 +45,12 @@ const matchJoin = function (
   state: nkruntime.MatchState,
   presences: nkruntime.Presence[]
 ): { state: nkruntime.MatchState } | null {
-  Logger.error(state);
   presences.forEach(function (presence) {
     state.presences[presence.userId] = presence;
+    state.players[presence.userId] = new Player({
+      x: 0,
+      y: 0
+    }, 100, 100)
   });
 
   return {
@@ -81,12 +69,6 @@ const matchLeave = function (
 ): { state: nkruntime.MatchState } | null {
   presences.forEach(function (presence) {
     delete state.presences[presence.userId];
-    const deleteParam: IStorageDelete = {
-      collection: USER_DATA_COLLECTION,
-      key: presence.userId,
-    };
-    StorageEngine.delete([deleteParam]);
-    logger.debug('%q left Lobby match', presence.userId);
   });
 
   return {
@@ -111,12 +93,24 @@ const matchLoop = function (
   });
 
   messages.forEach(function (message) {
-    dispatcher.broadcastMessage(
-      message.opCode,
-      message.data,
-      null,
-      message.sender
-    );
+    const view = new DataView(message.data);
+    let decodedStr = "";
+    for (let i = 0; i < (message.data.byteLength); i++) {
+      decodedStr += String.fromCharCode(view.getUint8(i));
+    }
+    let data = JSON.parse(decodedStr)
+    switch (message.opCode) {
+      case OpCode.move:
+        let player = <Player>state.players[message.sender.userId]
+        player.position.x -= player.speed
+
+        dispatcher.broadcastMessage(
+          message.opCode,
+          JSON.stringify(player),
+          null,
+          message.sender
+        );
+    }    
   });
 
   return {

@@ -16,6 +16,7 @@ session:
   token_expiry_sec: 7200 # 2 hours
   refresh_encryption_key: 'YHvam&xRwq%&A7(tKQqY9))yHZ4yN^I5P^3&&fzpLRmv@HqHkIUXIR^ksH4weWm3'
   encryption_key: 'Rxy!2Sr*hJhatpST*^e)sgMWuBy3U@SwryRU2tv#!DP4%TbV$4h8R#G@(n5zadBL'
+  single_socket: true
 socket:
   max_message_size_bytes: 4096 # reserved buffer
   max_request_size_bytes: 131072

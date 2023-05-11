@@ -14,7 +14,7 @@ const rpcMatchInit = function (
     label: payloadJson.label,
   };
   try {
-    matchId = nk.matchCreate(WORLD_MATCH_GAME, params);
+    matchId = nk.matchCreate(MATCH_GAME, params);
     return JSON.stringify(matchId);
   } catch (error: any) {
     logger.error(error);
