@@ -22,4 +22,4 @@ socket:
   server_key: 'k!j2N*Gcvd#gAKy@mLCPpdutD#yMYIEW^(sKE$6wp7yE%C!eF@%fMbt8J6CESESg'
 database:
   address:
-    - 'postgres:GybxJha5w5GR3nUU@neobank-nakama.cejtub0sxnrj.us-east-1.rds.amazonaws.com:5432/postgres'
+    - 'postgres:GybxJha5w5GR3nUU@database-dev-gunslinger-nakama.cs17mgilcjdt.us-east-1.rds.amazonaws.com:5432/postgres'
