@@ -18,4 +18,4 @@ EXPOSE 7349
 EXPOSE 7350
 EXPOSE 7351
 
-CMD /bin/sh -ecx exec /nakama/nakama --config /nakama/data/local.yml
+ENTRYPOINT ["/bin/sh", "-ecx", "exec /nakama/nakama --config /nakama/data/local.yml"]
