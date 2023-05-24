@@ -1,8 +1,8 @@
 console:
   signing_key: 'xctWk*jW&E9VkudnmVSy+6T&(9RrpN!XxXPPUgrVJRbg!WUhpgVUyqTKvKYk(pX%'
   max_message_size_bytes: 409600
-  username: 'metabank_admin'
-  password: 'password'
+  username: 'gunslinger_admin'
+  password: 'Password@321'
 logger:
   level: 'DEBUG'
 runtime:
